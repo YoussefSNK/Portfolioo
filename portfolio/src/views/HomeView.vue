@@ -14,34 +14,35 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-info">
-          <h1 class="hero-title">Bienvenue sur mon <span class="accent">Portfolio</span></h1>
-          <h2 class="hero-subtitle">Développeur Web Créatif</h2>
-          <p class="hero-text">
-            Je conçois et développe des expériences numériques élégantes et performantes, 
-            en combinant des interfaces utilisateur modernes avec des technologies robustes.
-          </p>
-          <div class="hero-cta">
-            <router-link to="/projects" class="btn btn-primary">Voir mes projets</router-link>
-            <router-link to="/contact" class="btn btn-outline">Me contacter</router-link>
+  <div class="home-view">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-info">
+            <h1 class="hero-title">Bienvenue sur mon <span class="accent">Portfolio</span></h1>
+            <h2 class="hero-subtitle">Développeur Web Créatif</h2>
+            <p class="hero-text">
+              Je conçois et développe des expériences numériques élégantes et performantes, 
+              en combinant des interfaces utilisateur modernes avec des technologies robustes.
+            </p>
+            <div class="hero-cta">
+              <router-link to="/projects" class="btn btn-primary">Voir mes projets</router-link>
+              <router-link to="/contact" class="btn btn-outline">Me contacter</router-link>
+            </div>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-image">
-            <div class="code-window">
-              <div class="code-header">
-                <div class="code-circles">
-                  <span class="code-circle"></span>
-                  <span class="code-circle"></span>
-                  <span class="code-circle"></span>
+          <div class="hero-visual">
+            <div class="hero-image">
+              <div class="code-window">
+                <div class="code-header">
+                  <div class="code-circles">
+                    <span class="code-circle"></span>
+                    <span class="code-circle"></span>
+                    <span class="code-circle"></span>
+                  </div>
+                  <div class="code-title">youss.ef</div>
                 </div>
-                <div class="code-title">youss.ef</div>
-              </div>
-              <div class="code-body">
-                <pre class="code-content">
+                <div class="code-body">
+                  <pre class="code-content">
 <span class="code-keyword">const</span> <span class="code-variable">developer</span> = {
   name: <span class="code-string">'MOIII'</span>,
   role: <span class="code-string">'Full Stack Developer'</span>,
@@ -56,92 +57,97 @@ onMounted(() => {
     <span class="code-keyword">return</span> <span class="code-string">'Modern & intuitive'</span>;
   }
 };</pre>
+                </div>
+              </div>
+            </div>
+            <div class="floating-elements">
+              <div class="floating-element html-tag">&lt;/&gt;</div>
+              <div class="floating-element css-icon">{}</div>
+              <div class="floating-element js-icon">JS</div>
+              <div class="floating-element vue-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.32 170.02">
+                  <path fill="#42b883" d="M120.83 0L98.16 39.26 75.49 0H0l98.16 170.02L196.32 0h-75.49z"/>
+                  <path fill="#35495e" d="M120.83 0L98.16 39.26 75.49 0H39.26l58.9 102.01L157.06 0h-36.23z"/>
+                </svg>
               </div>
             </div>
           </div>
-          <div class="floating-elements">
-            <div class="floating-element html-tag">&lt;/&gt;</div>
-            <div class="floating-element css-icon">{}</div>
-            <div class="floating-element js-icon">JS</div>
-            <div class="floating-element vue-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.32 170.02">
-                <path fill="#42b883" d="M120.83 0L98.16 39.26 75.49 0H0l98.16 170.02L196.32 0h-75.49z"/>
-                <path fill="#35495e" d="M120.83 0L98.16 39.26 75.49 0H39.26l58.9 102.01L157.06 0h-36.23z"/>
-              </svg>
+        </div>
+        <div class="scroll-indicator">
+          <span>Scroll</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </section>
+    
+    <section class="home-services section">
+      <div class="container">
+        <h2 class="section-title">Ce que je fais</h2>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
             </div>
+            <h3 class="service-title">Développement Front-end</h3>
+            <p class="service-description">
+              Création d'interfaces utilisateur réactives et intuitives utilisant les dernières technologies web.
+            </p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <h3 class="service-title">Développement Back-end</h3>
+            <p class="service-description">
+              Construction d'APIs robustes et évolutives pour alimenter vos applications.
+            </p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="service-title">Design Responsive</h3>
+            <p class="service-description">
+              Sites web parfaitement adaptés à tous les appareils, de l'ordinateur au smartphone.
+            </p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3 class="service-title">UI/UX Design</h3>
+            <p class="service-description">
+              Conception d'expériences utilisateur agréables et esthétiquement plaisantes.
+            </p>
           </div>
         </div>
       </div>
-      <div class="scroll-indicator">
-        <span>Scroll</span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-    </div>
-  </section>
-  
-  <section class="home-services section">
-    <div class="container">
-      <h2 class="section-title">Ce que je fais</h2>
-      
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-code"></i>
+    </section>
+    
+    <section class="home-cta section">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Intéressé par une collaboration?</h2>
+          <p class="cta-text">Découvrez mon travail et discutons de votre prochain projet</p>
+          <div class="cta-buttons">
+            <router-link to="/contact" class="btn btn-primary">Contactez-moi</router-link>
+            <router-link to="/projects" class="btn btn-outline">Voir mes projets</router-link>
           </div>
-          <h3 class="service-title">Développement Front-end</h3>
-          <p class="service-description">
-            Création d'interfaces utilisateur réactives et intuitives utilisant les dernières technologies web.
-          </p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-server"></i>
-          </div>
-          <h3 class="service-title">Développement Back-end</h3>
-          <p class="service-description">
-            Construction d'APIs robustes et évolutives pour alimenter vos applications.
-          </p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3 class="service-title">Design Responsive</h3>
-          <p class="service-description">
-            Sites web parfaitement adaptés à tous les appareils, de l'ordinateur au smartphone.
-          </p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <h3 class="service-title">UI/UX Design</h3>
-          <p class="service-description">
-            Conception d'expériences utilisateur agréables et esthétiquement plaisantes.
-          </p>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <section class="home-cta section">
-    <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title">Intéressé par une collaboration?</h2>
-        <p class="cta-text">Découvrez mon travail et discutons de votre prochain projet</p>
-        <div class="cta-buttons">
-          <router-link to="/contact" class="btn btn-primary">Contactez-moi</router-link>
-          <router-link to="/projects" class="btn btn-outline">Voir mes projets</router-link>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.home-view {
+  /* Conteneur principal pour toutes les sections */
+}
+
 .hero {
   min-height: calc(100vh - 70px);
   display: flex;
@@ -258,23 +264,22 @@ onMounted(() => {
   }
   
   .code-title {
-    color: var(--text-light);
-    margin-left: 1rem;
+    margin-left: auto;
     font-size: 0.875rem;
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.6);
   }
   
   .code-body {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   .code-content {
-    font-family: var(--font-code);
-    color: var(--text-light);
+    font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
-    white-space: pre;
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: pre-wrap;
   }
   
   .code-keyword {
@@ -301,66 +306,69 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none;
-}
-
-.floating-element {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   
-  &.html-tag {
-    font-size: 1.5rem;
-    color: #e34f26;
-    top: 10%;
-    left: -5%;
+  .floating-element {
+    position: absolute;
     font-weight: bold;
-    opacity: 0.8;
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  &.css-icon {
-    font-size: 1.5rem;
-    color: #264de4;
-    bottom: 15%;
-    left: -10%;
-    font-weight: bold;
-    opacity: 0.8;
-    animation: float 7s ease-in-out infinite reverse;
-  }
-  
-  &.js-icon {
-    font-size: 1.4rem;
-    color: #f7df1e;
-    top: 80%;
-    right: 5%;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 0.3em;
-    border-radius: 0.2em;
-    opacity: 0.9;
-    animation: float 5s ease-in-out 1s infinite;
-  }
-  
-  &.vue-icon {
-    width: 2rem;
-    top: 5%;
-    right: 10%;
-    opacity: 0.9;
-    animation: float 8s ease-in-out 2s infinite;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.1;
+    
+    &.html-tag {
+      top: 20%;
+      left: 10%;
+      font-size: 2rem;
+      color: var(--primary-color);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    &.css-icon {
+      top: 60%;
+      left: 15%;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      animation: float 7s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+    
+    &.js-icon {
+      top: 30%;
+      right: 10%;
+      font-size: 2rem;
+      color: #f7df1e;
+      background-color: #333;
+      padding: 0.3rem 0.6rem;
+      animation: float 5s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+    
+    &.vue-icon {
+      bottom: 20%;
+      right: 20%;
+      width: 3rem;
+      height: 3rem;
+      animation: float 8s ease-in-out infinite;
+      animation-delay: 1.5s;
+      
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 
 @keyframes float {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-20px) rotate(5deg);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
   }
 }
 
@@ -369,12 +377,16 @@ onMounted(() => {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
+  color: var(--gray-dark);
+  font-size: 0.875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--gray-medium);
-  font-size: 0.875rem;
-  gap: 0.5rem;
+  
+  span {
+    margin-bottom: 0.5rem;
+  }
   
   i {
     animation: bounce 2s infinite;
@@ -386,62 +398,77 @@ onMounted(() => {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
   60% {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
   }
 }
 
 .home-services {
-  background-color: var(--gray-light);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
+  background-color: var(--background-light);
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
 }
 
 .service-card {
-  background-color: var(--background-light);
+  background-color: var(--white);
   border-radius: var(--border-radius-md);
   padding: var(--spacing-lg);
   box-shadow: var(--box-shadow-light);
-  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  transition: all var(--transition-medium);
+  text-align: center;
   
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     box-shadow: var(--box-shadow-medium);
+    
+    .service-icon {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
   }
   
   .service-icon {
-    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--gray-light);
     color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto var(--spacing-md);
+    transition: all var(--transition-medium);
   }
   
   .service-title {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     font-size: 1.25rem;
   }
   
   .service-description {
     color: var(--gray-dark);
     line-height: 1.6;
-    margin-bottom: 0;
   }
 }
 
 .home-cta {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: var(--text-light);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/cta-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--white);
   
   .cta-content {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
   }
   
   .cta-title {
@@ -451,7 +478,8 @@ onMounted(() => {
   
   .cta-text {
     font-size: 1.25rem;
-    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
     opacity: 0.9;
   }
   
@@ -459,55 +487,38 @@ onMounted(() => {
     display: flex;
     gap: var(--spacing-md);
     justify-content: center;
-    
-    .btn-outline {
-      border-color: var(--text-light);
-      color: var(--text-light);
-      
-      &:hover {
-        background-color: var(--text-light);
-        color: var(--primary-color);
-      }
-    }
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .hero {
     &-content {
       grid-template-columns: 1fr;
+    }
+    
+    &-info {
+      order: 1;
       text-align: center;
-    }
-    
-    &-text {
-      max-width: 100%;
-    }
-    
-    &-cta {
-      justify-content: center;
+      margin-top: var(--spacing-xl);
+      
+      .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-cta {
+        justify-content: center;
+      }
     }
     
     &-visual {
-      grid-row: 1;
-      margin-bottom: var(--spacing-lg);
-    }
-  }
-  
-  .floating-element {
-    &.html-tag {
-      left: 5%;
-    }
-    
-    &.css-icon {
-      left: 75%;
+      order: 0;
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .hero {
-    padding: var(--spacing-lg) 0;
-    
     &-title {
       font-size: 2.5rem;
     }
@@ -515,31 +526,30 @@ onMounted(() => {
     &-subtitle {
       font-size: 1.25rem;
     }
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
     
-    .btn {
+    &-cta {
+      flex-direction: column;
       width: 100%;
-      max-width: 300px;
+      
+      .btn {
+        width: 100%;
+      }
     }
   }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
-  }
   
-  .service-card {
-    padding: var(--spacing-md);
-  }
-  
-  .home-cta .cta-title {
-    font-size: 1.75rem;
+  .home-cta {
+    .cta-title {
+      font-size: 2rem;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+      
+      .btn {
+        width: 100%;
+      }
+    }
   }
 }
 </style> 

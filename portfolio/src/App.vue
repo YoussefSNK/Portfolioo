@@ -11,7 +11,7 @@ onMounted(() => {
   // Mettre à jour la route active au chargement
   currentRoute.value = router.currentRoute.value.path
   
-  // Animation d'entrée avec forceTransform pour éviter les problèmes de rendu
+  // Uniquement animer le header au chargement initial de la page
   const tl = gsap.timeline({ defaults: { ease: 'power2.out', force3D: true } })
   tl.from('.nav-logo', { opacity: 0, y: -20, duration: 0.6, clearProps: 'all' })
     .from('.nav-item', { 
@@ -19,9 +19,10 @@ onMounted(() => {
       y: -20, 
       stagger: 0.1, 
       duration: 0.4,
-      clearProps: 'all' // Assure que les propriétés d'animation sont nettoyées
+      clearProps: 'all'
     }, '-=0.2')
-    .from('.router-container', { opacity: 0, duration: 0.8 }, '-=0.4')
+  
+  // Ne PAS animer le container du router ici car cela interfère avec les transitions de vue
 })
 
 // Mettre à jour la route active lorsque la route change
@@ -89,7 +90,7 @@ const setActiveRoute = (route) => {
       </div>
     </header>
     
-    <main class="main router-container">
+    <main class="main">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
@@ -123,6 +124,17 @@ const setActiveRoute = (route) => {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+// Définir les styles de transition pour le router
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .header {
@@ -226,6 +238,7 @@ const setActiveRoute = (route) => {
 
 .main {
   flex: 1;
+  position: relative; /* Important pour le positionnement des composants routés */
 }
 
 .footer {
