@@ -1,0 +1,234 @@
+:root {
+  /* Palette de couleurs modernes et élégantes */
+  --primary-color: #3a86ff;
+  --secondary-color: #8338ec;
+  --accent-color: #ff006e;
+  --background-light: #f8f9fa;
+  --background-dark: #212529;
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --gray-light: #e9ecef;
+  --gray-medium: #adb5bd;
+  --gray-dark: #495057;
+  --success-color: #00b4d8;
+  --warning-color: #ffbe0b;
+  --error-color: #e5383b;
+
+  /* Polices */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
+  --font-code: 'Fira Code', monospace;
+
+  /* Espacements */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Bordures et ombres */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  --box-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --box-shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --box-shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Import des polices Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* Réinitialisation */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  color: var(--text-dark);
+  background-color: var(--background-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typographie de base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
+/* Classes utilitaires */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: var(--border-radius-sm);
+  }
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  text-align: center;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    
+    &:hover {
+      background-color: darken(#3a86ff, 10%);
+      transform: translateY(-2px);
+      box-shadow: var(--box-shadow-medium);
+    }
+  }
+  
+  &-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    
+    &:hover {
+      background-color: darken(#8338ec, 10%);
+      transform: translateY(-2px);
+      box-shadow: var(--box-shadow-medium);
+    }
+  }
+  
+  &-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Classes d'animation */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-medium);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Media queries pour responsive */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+} 
