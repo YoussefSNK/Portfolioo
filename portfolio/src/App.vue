@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 
@@ -8,11 +8,25 @@ const isMenuOpen = ref(false)
 const currentRoute = ref('/')
 
 onMounted(() => {
-  // Animation d'entrée
-  const tl = gsap.timeline()
-  tl.from('.nav-logo', { opacity: 0, y: -20, duration: 0.6 })
-    .from('.nav-link', { opacity: 0, y: -20, stagger: 0.1, duration: 0.4 }, '-=0.2')
+  // Mettre à jour la route active au chargement
+  currentRoute.value = router.currentRoute.value.path
+  
+  // Animation d'entrée avec forceTransform pour éviter les problèmes de rendu
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out', force3D: true } })
+  tl.from('.nav-logo', { opacity: 0, y: -20, duration: 0.6, clearProps: 'all' })
+    .from('.nav-item', { 
+      opacity: 0, 
+      y: -20, 
+      stagger: 0.1, 
+      duration: 0.4,
+      clearProps: 'all' // Assure que les propriétés d'animation sont nettoyées
+    }, '-=0.2')
     .from('.router-container', { opacity: 0, duration: 0.8 }, '-=0.4')
+})
+
+// Mettre à jour la route active lorsque la route change
+watch(() => router.currentRoute.value.path, (newPath) => {
+  currentRoute.value = newPath
 })
 
 const toggleMenu = () => {
@@ -124,12 +138,14 @@ const setActiveRoute = (route) => {
     justify-content: space-between;
     align-items: center;
     padding: 1rem var(--spacing-md);
+    height: 70px; /* Hauteur fixe pour éviter les redimensionnements */
   }
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
+  z-index: 101; /* Assure que le logo reste au-dessus du menu mobile */
   
   a {
     display: flex;
@@ -152,6 +168,13 @@ const setActiveRoute = (route) => {
     display: flex;
     list-style: none;
     gap: var(--spacing-md);
+    margin: 0;
+    padding: 0;
+  }
+  
+  &-item {
+    margin: 0;
+    padding: 0;
   }
   
   &-link {
@@ -163,6 +186,7 @@ const setActiveRoute = (route) => {
     padding: 0.5rem 0.75rem;
     border-radius: var(--border-radius-md);
     transition: all var(--transition-medium);
+    text-decoration: none;
     
     i {
       font-size: 0.875rem;
@@ -189,6 +213,7 @@ const setActiveRoute = (route) => {
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 101; /* Assure que le bouton reste au-dessus du menu mobile */
   
   &-bar {
     height: 3px;
@@ -271,6 +296,7 @@ const setActiveRoute = (route) => {
     
     &-link {
       font-size: 1.25rem;
+      width: 100%;
     }
   }
   
