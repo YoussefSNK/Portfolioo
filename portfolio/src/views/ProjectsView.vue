@@ -106,14 +106,18 @@ const closeProjectDetails = () => {
 const setFilter = (categoryId) => {
   activeFilter.value = categoryId
   
-  // Animation des projets filtrés
-  gsap.from('.project-card', {
-    opacity: 0,
-    y: 30,
-    duration: 0.5,
-    stagger: 0.1,
-    ease: 'power2.out'
-  })
+  // Animation des projets filtrés sans affecter la visibilité des filtres
+  gsap.fromTo('.project-card', 
+    { opacity: 0, y: 20 },
+    { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.5, 
+      stagger: 0.1, 
+      ease: 'power2.out', 
+      clearProps: 'all' // Important : nettoie les propriétés après l'animation
+    }
+  )
 }
 
 onMounted(() => {
@@ -122,16 +126,18 @@ onMounted(() => {
     opacity: 0,
     y: 30,
     duration: 0.8,
-    stagger: 0.2
+    stagger: 0.2,
+    clearProps: 'all' // Nettoie les propriétés après l'animation
   })
   
-  // Animation des filtres
+  // Animation des filtres - avec clearProps pour éviter les problèmes de visibilité
   gsap.from('.filter-item', {
     opacity: 0,
     y: 20,
     duration: 0.5,
     stagger: 0.1,
-    delay: 0.3
+    delay: 0.3,
+    clearProps: 'all' // Très important : s'assure que les éléments restent visibles après l'animation
   })
   
   // Animation des cartes de projet
@@ -140,7 +146,8 @@ onMounted(() => {
     y: 50,
     duration: 0.6,
     stagger: 0.1,
-    delay: 0.5
+    delay: 0.5,
+    clearProps: 'all' // Nettoie les propriétés après l'animation
   })
 })
 </script>
@@ -278,6 +285,8 @@ onMounted(() => {
     list-style: none;
     gap: var(--spacing-md);
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
   }
   
   .filter-item {
@@ -287,6 +296,7 @@ onMounted(() => {
     cursor: pointer;
     transition: all var(--transition-medium);
     font-weight: 500;
+    opacity: 1 !important; /* Assure que les filtres restent toujours visibles */
     
     &:hover {
       background-color: var(--primary-color);
